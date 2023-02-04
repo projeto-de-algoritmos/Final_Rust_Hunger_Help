@@ -68,7 +68,7 @@ const djikstraAlgorithm = (graph, startNode, endNode) => {
 
 const tableDistances = (graph) => {
     const distances = [];
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 2; i <= 12; i++) {
         const distance = djikstraAlgorithm(graph, 0, i);
         distances.push(distance);
     }

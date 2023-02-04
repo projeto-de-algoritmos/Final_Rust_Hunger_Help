@@ -1,20 +1,20 @@
-const generateNodes = (graph) => {
-    const qtd = 12;
-    const nodes = [];
-    for (let i = 0; i <= qtd; i++) {
+export function generateNodes = (graph) => {
+    export function qtd = 12;
+    export function nodes = [];
+    for (let i = 1; i <= qtd; i++) {
         graph.set(i, []);
         nodes.push({ id: i });
     }
     return nodes;
 }
 
-const addLink = (graph, source, node, distance) => {
+export function addLink = (graph, source, node, distance) => {
     graph.get(source).push({ link: node, distance });
     graph.get(node).push({ link: source, distance });
 }
 
-const staticMap = (graph) => {
-    // Constroe o mapa estático com seus nós já conectados, com distância nula
+export function staticMap = (graph) => {
+    // export functionroe o mapa estático com seus nós já conectados, com distância nula
     addLink(graph, 1, 2, 1);
     addLink(graph, 1, 3, 2);
     addLink(graph, 1, 4, 3);
