@@ -1,17 +1,7 @@
-const print_matriz = (table) => {
-    let str = '';
-
-    for (let i = 0; i < table.length; i++) {
-        for (let j = 0; j < table[i].length; j++) {
-            str += table[i][j] + ' | ';
-        }
-        str += '\n';
-    }
-    console.log(str + '\n');
-}
+import { Food } from "../../interfaces/food.interface";
 
 //Depois de escolher o personagem, ele possui um peso da mochila
-const knapSack = (foods, bag_weight) => {
+const knapSack = (foods: Food[], bag_weight: number) => {
     const qtdItens = foods.length;
 
     // Tabela usada na DP
@@ -33,10 +23,10 @@ const knapSack = (foods, bag_weight) => {
             M[i][j] = VALUE_WITHOUT_THIS_ITEM;
             selection[i][j] = 0;
 
-            const life = foods[i].life;
+            const hunger = foods[i].hunger;
             const weight = foods[i].weight;
 
-            const VALUE_WITH_THIS_ITEM = life + M[i - 1][j - weight];
+            const VALUE_WITH_THIS_ITEM = hunger + M[i - 1][j - weight];
 
             if (weight <= j && VALUE_WITH_THIS_ITEM > VALUE_WITHOUT_THIS_ITEM) {
                 M[i][j] = VALUE_WITH_THIS_ITEM;
@@ -45,27 +35,24 @@ const knapSack = (foods, bag_weight) => {
         }
     }
 
-    //print_matriz(selection);
-
     const selectedFoods = [];
     let m = bag_weight;
     let totalWeight = 0;
 
     for (let i = qtdItens - 1; i >= 1; i--) {
         if (selection[i][m] === 1) {
-            //console.log(foods[i].name, foods[i].life, foods[i].weight);
             selectedFoods.push(foods[i]);
             totalWeight += foods[i].weight;
             m = m - foods[i].weight;
         }
     }
 
-    const totalLife = M[qtdItens - 1][bag_weight];
-    return { totalLife, totalWeight, selectedFoods };
+    const totalHunger = M[qtdItens - 1][bag_weight];
+    return { totalHunger, totalWeight, selectedFoods };
 }
 
 
-const generateKnapSack = (foodsPerRegion, bag_weight) => {
+const generateKnapSack = (foodsPerRegion: Food[][], bag_weight: number) => {
     const bestKnapsacks = [];
     for (let i = 0; i < foodsPerRegion.length; i++) {
         const knapsack = knapSack(foodsPerRegion[i], bag_weight);

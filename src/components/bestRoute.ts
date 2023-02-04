@@ -1,26 +1,28 @@
-const relationKmLife = (distance, life) => {
+import { BestDistribution } from "../interfaces/bestDistrubution.interface";
+
+const relationKmHunger = (distance: number, hunger: number) => {
 
     // 1 vida equivale a 5km, então precisamos encontrar a maior real_km.
-    const possible_km = 5 * life;
+    const possible_km = 5 * hunger;
     const real_km = possible_km - distance;
 
     return real_km;
 }
 
-const findBestRoute = (minorDistances, bestFoodsPerRegion) => {
+const findBestRoute = (minorDistances: number[], bestFoodsPerRegion: BestDistribution[]) => {
     let bestRelation = -1000;
     let bestChoice = {};
 
     for (let i = 0; i < minorDistances.length; i++) {
 
-        const relation = relationKmLife(minorDistances[i], bestFoodsPerRegion[i].totalLife);
+        const relation = relationKmHunger(minorDistances[i], bestFoodsPerRegion[i].totalHunger);
 
         if (relation > bestRelation) {
             bestRelation = relation;
             bestChoice = {
                 bestRelation,
                 totalWeight: bestFoodsPerRegion[i].totalWeight,
-                totalLife: bestFoodsPerRegion[i].totalLife,
+                totalHunger: bestFoodsPerRegion[i].totalHunger,
                 selectedFoods: bestFoodsPerRegion[i].selectedFoods,
                 distance: minorDistances[i],
                 region: i + 1,

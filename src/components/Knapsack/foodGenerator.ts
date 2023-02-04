@@ -1,6 +1,8 @@
 // Gera os alimentos aleatórios para cada região
 
-const getRandomFoods = (foods) => {
+import { Food } from "../../interfaces/food.interface";
+
+const getRandomFoods = (foods: Food[]) => {
     const randomFoods = [];
     for (let i = 0; i < 5; i++) {
         const random = foods[(Math.random() * foods.length) | 0];
@@ -9,7 +11,7 @@ const getRandomFoods = (foods) => {
     return randomFoods;
 }
 
-const generateFoodsPerRegion = (foods) => {
+const generateFoodsPerRegion = (foods: Food[]) => {
     const foodsPerRegion = [];
 
     for (let i=1; i<=12; i++) {
