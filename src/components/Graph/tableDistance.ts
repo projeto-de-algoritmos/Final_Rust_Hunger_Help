@@ -1,10 +1,12 @@
+import { Pqueue } from "../../interfaces/pqueue.interface";
+import { Graph } from "../../interfaces/graph.interface";
 // Djikstra para gerar tabela de distâncias para o ponto inicial
 
 const createPriorityQueue = () => {
     return [];
 }
 
-const enqueue = (pqueue, element, price) => {
+const enqueue = (pqueue: Pqueue[], element: number, price: number) => {
     let exists = false;
 
     for (let i = 0; i < pqueue.length; i++) {
@@ -19,16 +21,16 @@ const enqueue = (pqueue, element, price) => {
 
 }
 
-const dequeue = (pqueue) => {
+const dequeue = (pqueue: Pqueue[]) => {
     if (!pqueue.length) throw "Is Empty!"
 
     return pqueue.shift()
 }
 
-const djikstraAlgorithm = (graph, startNode, endNode) => {
-    let prices = {};
-    let prevNode = {};
-    const queue = createPriorityQueue();
+const djikstraAlgorithm = (graph: Graph, startNode: number, endNode: number) => {
+    let prices: any = {};
+    let prevNode: any = {};
+    const queue: Pqueue[] = createPriorityQueue();
     const startNodes = graph.get(startNode);
 
     prices[startNode] = 0;
@@ -42,19 +44,23 @@ const djikstraAlgorithm = (graph, startNode, endNode) => {
 
     while (queue.length) {
         let minNode = dequeue(queue);
-        let currNode = minNode.element;
+        let currNode = minNode ? minNode.element : 0;
 
         const nodes = graph.get(currNode);
 
-        if (!startNodes.length) return "Sem caminho utilizando esse nó inicial";
+        if (startNodes) {
+            if (!startNodes.length) return "Sem caminho utilizando esse nó inicial";
+        }
 
-        for (let node of nodes) {
-            const sumPrice = prices[currNode] + node.distance;
+        if (nodes) {
+            for (let node of nodes) {
+                const sumPrice = prices[currNode] + node.distance;
 
-            if (sumPrice < prices[node.link]) {
-                prevNode[node.link] = currNode;
-                prices[node.link] = sumPrice;
-                enqueue(queue, node.link, prices[node.link])
+                if (sumPrice < prices[node.link]) {
+                    prevNode[node.link] = currNode;
+                    prices[node.link] = sumPrice;
+                    enqueue(queue, node.link, prices[node.link])
+                }
             }
         }
 
@@ -66,7 +72,7 @@ const djikstraAlgorithm = (graph, startNode, endNode) => {
 
 }
 
-const tableDistances = (graph) => {
+const tableDistances = (graph: Graph) => {
     const distances = [];
     for (let i = 2; i <= 12; i++) {
         const distance = djikstraAlgorithm(graph, 0, i);

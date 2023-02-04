@@ -14,11 +14,10 @@ const getRandomFoods = (foods: Food[]) => {
 const generateFoodsPerRegion = (foods: Food[]) => {
     const foodsPerRegion = [];
 
-    for (let i=1; i<=12; i++) {
+    for (let i = 1; i <= 12; i++) {
         const regionFoods = getRandomFoods(foods);
         foodsPerRegion.push(regionFoods);
     }
-    console.log(foodsPerRegion)
     return foodsPerRegion;
 }
 

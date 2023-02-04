@@ -1,12 +1,26 @@
+import { Graph } from './../../interfaces/graph.interface';
+import { Pqueue } from '../../interfaces/pqueue.interface';
 // Gerador de Distâncias Aleatórias
 
-const randomDistance = (min, max) => {
+const randomDistance = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const setDistance = (graph, source, node, distance) => {
-    graph.get(source).find(x => x.link === node).distance = distance;
-    graph.get(node).find(x => x.link === source).distance = distance;
+const setDistance = (graph: Graph, source: number, node: number, distance: number) => {
+    let g = graph.get(source)
+    if (g) {
+        let gg = g.find(x => x.link === node)
+        if (gg) {
+            gg.distance = distance;
+        }
+    }
+    let g2 = graph.get(node)
+    if (g2) {
+        let gg2 = g2.find(x => x.link === source)
+        if (gg2) {
+            gg2.distance = distance;
+        }
+    }
 }
 
 // Djikstra para gerar tabela de distâncias para o ponto inicial
@@ -15,7 +29,7 @@ const createPriorityQueue = () => {
     return [];
 }
 
-const enqueue = (pqueue, element, price) => {
+const enqueue = (pqueue: Pqueue[], element: number, price: number) => {
     let exists = false;
 
     for (let i = 0; i < pqueue.length; i++) {
@@ -30,42 +44,48 @@ const enqueue = (pqueue, element, price) => {
 
 }
 
-const dequeue = (pqueue) => {
+const dequeue = (pqueue: Pqueue[]) => {
     if (!pqueue.length) throw "Is Empty!"
 
     return pqueue.shift()
 }
 
-const djikstraAlgorithm = (graph, startNode, endNode) => {
-    let prices = {};
-    let prevNode = {};
-    const queue = createPriorityQueue();
+const djikstraAlgorithm = (graph: Graph, startNode: number, endNode: number) => {
+    let prices: any = {};
+    let prevNode: any = {};
+    const queue: Pqueue[] = createPriorityQueue();
     const startNodes = graph.get(startNode);
 
     prices[startNode] = 0;
+    console.log(prices)
     enqueue(queue, startNode, 0);
 
-    const vertices = graph.keys();
+    const vertices: any = graph.keys();
     for (let vert of vertices) {
         if (vert !== startNode) prices[vert] = Infinity;
         prevNode[vert] = null;
     }
 
     while (queue.length) {
-        let minNode = dequeue(queue);
-        let currNode = minNode.element;
+        let minNode: any = dequeue(queue);
+        let currNode: any = minNode.element;
 
         const nodes = graph.get(currNode);
 
-        if (!startNodes.length) return "Sem caminho utilizando esse nó inicial";
+        if (startNodes) {
+            if (!startNodes.length) return "Sem caminho utilizando esse nó inicial";
+        }
 
-        for (let node of nodes) {
-            const sumPrice = prices[currNode] + node.distance;
 
-            if (sumPrice < prices[node.link]) {
-                prevNode[node.link] = currNode;
-                prices[node.link] = sumPrice;
-                enqueue(queue, node.link, prices[node.link])
+        if (nodes) {
+            for (let node of nodes) {
+                const sumPrice = prices[currNode] + node.distance;
+
+                if (sumPrice < prices[node.link]) {
+                    prevNode[node.link] = currNode;
+                    prices[node.link] = sumPrice;
+                    enqueue(queue, node.link, prices[node.link])
+                }
             }
         }
 
@@ -78,20 +98,20 @@ const djikstraAlgorithm = (graph, startNode, endNode) => {
 }
 
 
-const generateDistances = (graph, qtd) => {
+const generateDistances = (graph: Graph, qtd: number) => {
     // gera as distâncias aleatórias para os nós já pré definidos
-    addLink(graph, 1, 2, randomDistance(1, qtd));
-    addLink(graph, 1, 3, randomDistance(1, qtd));
-    addLink(graph, 1, 4, randomDistance(1, qtd));
-    addLink(graph, 3, 5, randomDistance(1, qtd));
-    addLink(graph, 3, 7, randomDistance(1, qtd));
-    addLink(graph, 5, 10, randomDistance(1, qtd));
-    addLink(graph, 10, 11, randomDistance(1, qtd));
-    addLink(graph, 10, 9, randomDistance(1, qtd));
-    addLink(graph, 11, 12, randomDistance(1, qtd));
-    addLink(graph, 7, 6, randomDistance(1, qtd));
-    addLink(graph, 6, 8, randomDistance(1, qtd));
-    addLink(graph, 6, 9, randomDistance(1, qtd));
+    setDistance(graph, 1, 2, randomDistance(1, qtd));
+    setDistance(graph, 1, 3, randomDistance(1, qtd));
+    setDistance(graph, 1, 4, randomDistance(1, qtd));
+    setDistance(graph, 3, 5, randomDistance(1, qtd));
+    setDistance(graph, 3, 7, randomDistance(1, qtd));
+    setDistance(graph, 5, 10, randomDistance(1, qtd));
+    setDistance(graph, 10, 11, randomDistance(1, qtd));
+    setDistance(graph, 10, 9, randomDistance(1, qtd));
+    setDistance(graph, 11, 12, randomDistance(1, qtd));
+    setDistance(graph, 7, 6, randomDistance(1, qtd));
+    setDistance(graph, 6, 8, randomDistance(1, qtd));
+    setDistance(graph, 6, 9, randomDistance(1, qtd));
 
     const distances = [];
     for (let i = 1; i <= 12; i++) {
