@@ -1,4 +1,5 @@
 import { BestDistribution } from "../interfaces/bestDistrubution.interface";
+import { BestRoute } from "../interfaces/bestRoute.interface";
 
 const relationKmHunger = (distance: number, hunger: number) => {
 
@@ -11,11 +12,12 @@ const relationKmHunger = (distance: number, hunger: number) => {
 
 const findBestRoute = (minorDistances: number[], bestFoodsPerRegion: BestDistribution[]) => {
     let bestRelation = -1000;
-    let bestChoice = {};
+    let bestChoice = {} as BestRoute;
 
     for (let i = 0; i < minorDistances.length; i++) {
 
-        const relation = relationKmHunger(minorDistances[i], bestFoodsPerRegion[i].totalHunger);
+        const relation = relationKmHunger(minorDistances[i], bestFoodsPerRegion[i]?.totalHunger);
+
 
         if (relation > bestRelation) {
             bestRelation = relation;

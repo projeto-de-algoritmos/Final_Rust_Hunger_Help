@@ -57,7 +57,6 @@ const djikstraAlgorithm = (graph: Graph, startNode: number, endNode: number) => 
     const startNodes = graph.get(startNode);
 
     prices[startNode] = 0;
-    console.log(prices)
     enqueue(queue, startNode, 0);
 
     const vertices: any = graph.keys();
@@ -100,18 +99,18 @@ const djikstraAlgorithm = (graph: Graph, startNode: number, endNode: number) => 
 
 const generateDistances = (graph: Graph, qtd: number) => {
     // gera as distâncias aleatórias para os nós já pré definidos
-    setDistance(graph, 1, 2, randomDistance(1, qtd));
-    setDistance(graph, 1, 3, randomDistance(1, qtd));
-    setDistance(graph, 1, 4, randomDistance(1, qtd));
-    setDistance(graph, 3, 5, randomDistance(1, qtd));
-    setDistance(graph, 3, 7, randomDistance(1, qtd));
-    setDistance(graph, 5, 10, randomDistance(1, qtd));
+    setDistance(graph, 0, 1, randomDistance(1, qtd));
+    setDistance(graph, 0, 2, randomDistance(1, qtd));
+    setDistance(graph, 0, 3, randomDistance(1, qtd));
+    setDistance(graph, 2, 4, randomDistance(1, qtd));
+    setDistance(graph, 2, 6, randomDistance(1, qtd));
+    setDistance(graph, 4, 9, randomDistance(1, qtd));
+    setDistance(graph, 9, 10, randomDistance(1, qtd));
+    setDistance(graph, 9, 8, randomDistance(1, qtd));
     setDistance(graph, 10, 11, randomDistance(1, qtd));
-    setDistance(graph, 10, 9, randomDistance(1, qtd));
-    setDistance(graph, 11, 12, randomDistance(1, qtd));
-    setDistance(graph, 7, 6, randomDistance(1, qtd));
-    setDistance(graph, 6, 8, randomDistance(1, qtd));
-    setDistance(graph, 6, 9, randomDistance(1, qtd));
+    setDistance(graph, 6, 5, randomDistance(1, qtd));
+    setDistance(graph, 5, 7, randomDistance(1, qtd));
+    setDistance(graph, 5, 8, randomDistance(1, qtd));
 
     const distances = [];
     for (let i = 1; i <= 12; i++) {

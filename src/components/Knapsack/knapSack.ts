@@ -56,10 +56,8 @@ const generateKnapSack = (foodsPerRegion: Food[][], bag_weight: number) => {
     const bestKnapsacks = [];
     for (let i = 0; i < foodsPerRegion.length; i++) {
         const knapsack = knapSack(foodsPerRegion[i], bag_weight);
-        console.log(knapsack)
         bestKnapsacks.push(knapsack);
     }
-    console.log(bestKnapsacks)
     return bestKnapsacks;
 }
 export default { generateKnapSack };
