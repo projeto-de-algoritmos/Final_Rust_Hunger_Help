@@ -1,33 +1,44 @@
 **!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
 
 Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
  - Final 
  
  **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
  
  (Apague essa seção)
 
-# NomedoProjeto
+# Rust_Hunger_Help
 
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 5<br>
+**Conteúdo da Disciplina**: Projeto Final <br>
 
 ## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+
+| Matrícula  | Aluno                         |
+| ---------- | ----------------------------- |
+| 17/0013987 | João Victor de Oliveira Matos |
+| 17/0011119 | Geraldo Victor Alves Barbosa  |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+Neste projeto, foi utilizado o jogo Rust como referência, é um jogo de sobrevivência onde você tem que encontrar recursos para sobreviver, o recurso escolhido foi a comida, mas o jogo é muito mais abrangente e nós decidirmos simplificar para aplicar ao projeto.
+
+Foram reaproveitados os algoritmos do djikstra para encontrar os menores percursos para cada região, e o algoritmo do Weighted Knapsack para descobrir os melhores elementos para se levar em cada região.
+
+No jogo, você terá o seguinte passo a passo:
+
+Gerar mapa com itens para cada região (visualizar itens e distância clicando no mapa)
+Selecionar peso da mochila
+Visualizar itens possíveis de serem levados de acordo com personagem e cada região
+Encontrar melhor região para ir de acordo com a relação da distância com a quantidade de comida que você adquirá na região.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+![Screenshot 1](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/screenshots/Captura%20de%20tela%20de%202023-02-06%2012-08-31.png?raw=true)
+![Screenshot 2](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/screenshots/Captura%20de%20tela%20de%202023-02-06%2012-08-38.png?raw=true)
+![Screenshot 3](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/screenshots/Captura%20de%20tela%20de%202023-02-06%2012-08-42.png?raw=true)
+![Screenshot 4](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/screenshots/Captura%20de%20tela%20de%202023-02-06%2012-08-47.png?raw=true)
+![Screenshot 5](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/screenshots/Captura%20de%20tela%20de%202023-02-06%2012-08-54.png?raw=true)
+
+
 
 ## Instalação 
 **Linguagem**: xxxxxx<br>
@@ -36,9 +47,6 @@ Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 
 ## Uso 
 Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
 
 
 
