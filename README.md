@@ -1,11 +1,5 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
-
 Temas:
  - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
 
 # Rust_Hunger_Help
 
@@ -38,7 +32,8 @@ Encontrar melhor região para ir de acordo com a relação da distância com a q
 ![Screenshot 4](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/screenshots/Captura%20de%20tela%20de%202023-02-06%2012-08-47.png?raw=true)
 ![Screenshot 5](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/screenshots/Captura%20de%20tela%20de%202023-02-06%2012-08-54.png?raw=true)
 
-
+## Apresentação
+[Link (baixar)](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/apresentacao.mp4)
 
 ## Instalação 
 **Linguagem**: xxxxxx<br>
