@@ -24,8 +24,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import { TabPanelProps } from "./interfaces/tabPanel.interface";
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
+
 
 function App() {
 	const [selectedNode, setSelectedNode] = useState<Number>(-1);
@@ -38,7 +37,7 @@ function App() {
 		BestDistribution[]
 	>([]);
 	const [bestRoute, setBestRoute] = useState({} as BestRoute);
-	const [bagSize, setBagSize] = useState<Number>("")
+	const [bagSize, setBagSize] = useState<Number>(0)
 	const [value, setValue] = useState(0);
 
 
@@ -77,7 +76,7 @@ function App() {
 		);
 	}
 
-	function a11yProps(index) {
+	function a11yProps(index: any) {
 		return {
 			id: `scrollable-force-tab-${index}`,
 			"aria-controls": `scrollable-force-tabpanel-${index}`
@@ -148,132 +147,20 @@ function App() {
 							</Box>
 							<Box>
 								<img
-									src={map}
-									useMap="#image-map"
-									width={500}
-									height={500}
-								/>
+									src={map} useMap="#image-map" width={500} height={500} />
 								<map name="image-map">
-									<area
-										target=""
-										alt="Nó 1"
-										title="Nó 1"
-										onClick={() => {
-											setSelectedNode(0);
-										}}
-										coords="260,84, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 2"
-										title="Nó 2"
-										onClick={() => {
-											setSelectedNode(1);
-										}}
-										coords="309,51, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 3"
-										title="Nó 3"
-										onClick={() => {
-											setSelectedNode(2);
-										}}
-										coords="225,168, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 4"
-										title="Nó 4"
-										onClick={() => {
-											setSelectedNode(3);
-										}}
-										coords="115,128,25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 5"
-										title="Nó 5"
-										onClick={() => {
-											setSelectedNode(4);
-										}}
-										coords="96,228, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 6"
-										title="Nó 6"
-										onClick={() => {
-											setSelectedNode(5);
-										}}
-										coords="231,263, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 7"
-										title="Nó 7"
-										onClick={() => {
-											setSelectedNode(6);
-										}}
-										coords="475,274, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 8"
-										title="Nó 8"
-										onClick={() => {
-											setSelectedNode(7);
-										}}
-										coords="401,374, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 9"
-										title="Nó 9"
-										onClick={() => {
-											setSelectedNode(8);
-										}}
-										coords="267, 369, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 10"
-										title="Nó 10"
-										onClick={() => {
-											setSelectedNode(9);
-										}}
-										coords="144,335, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 11"
-										title="Nó 11"
-										onClick={() => {
-											setSelectedNode(10);
-										}}
-										coords="135, 417, 25"
-										shape="circle"
-									/>
-									<area
-										target=""
-										alt="Nó 12"
-										title="Nó 12"
-										onClick={() => {
-											setSelectedNode(11);
-										}}
-										coords="69, 289, 25"
-										shape="circle"
-									/>
+									<area target="" alt="Nó 1" title="Nó 1" onClick={() => { setSelectedNode(0); }} coords="260,84, 25" shape="circle" />
+									<area target="" alt="Nó 2" title="Nó 2" onClick={() => { setSelectedNode(1); }} coords="309,51, 25" shape="circle" />
+									<area target="" alt="Nó 3" title="Nó 3" onClick={() => { setSelectedNode(2); }} coords="225,168, 25" shape="circle" />
+									<area target="" alt="Nó 4" title="Nó 4" onClick={() => { setSelectedNode(3); }} coords="115,128,25" shape="circle" />
+									<area target="" alt="Nó 5" title="Nó 5" onClick={() => { setSelectedNode(4); }} coords="96,228, 25" shape="circle" />
+									<area target="" alt="Nó 6" title="Nó 6" onClick={() => { setSelectedNode(5); }} coords="231,263, 25" shape="circle" />
+									<area target="" alt="Nó 7" title="Nó 7" onClick={() => { setSelectedNode(6); }} coords="475,274, 25" shape="circle" />
+									<area target="" alt="Nó 8" title="Nó 8" onClick={() => { setSelectedNode(7); }} coords="401,374, 25" shape="circle" />
+									<area target="" alt="Nó 9" title="Nó 9" onClick={() => { setSelectedNode(8); }} coords="267, 369, 25" shape="circle" />
+									<area target="" alt="Nó 10" title="Nó 10" onClick={() => { setSelectedNode(9); }} coords="144,335, 25" shape="circle" />
+									<area target="" alt="Nó 11" title="Nó 11" onClick={() => { setSelectedNode(10); }} coords="135, 417, 25" shape="circle" />
+									<area target="" alt="Nó 12" title="Nó 12" onClick={() => { setSelectedNode(11); }} coords="69, 289, 25" shape="circle" />
 								</map>
 							</Box>
 							<Box>
@@ -296,19 +183,6 @@ function App() {
 											<MenuItem value={100}>100 Kg</MenuItem>
 										</Select>
 									</FormControl>
-									{/* <Button
-										variant="contained"
-										onClick={() => {
-											setBestDistribution(
-												knapsack.generateKnapSack(
-													foods,
-													Number(bagSize)
-												)
-											);
-										}}
-									>
-										Setar mochila
-									</Button> */}
 								</Stack>
 
 							</Box>
@@ -378,7 +252,7 @@ function App() {
 
 												return (
 
-													<Tab key={index} label={index}  {...a11yProps(0)} />
+													<Tab key={index} label={index + 1}  {...a11yProps(0)} />
 
 
 												);
@@ -396,11 +270,11 @@ function App() {
 															{node.totalHunger}{" "}
 															Fome
 														</Typography>
-														<Typography className="ITEM-PRICE">
+														<Typography>
 															{node.totalWeight}{" "}
 															Kg
 														</Typography>
-														<div className="ITEMS_CARRY">
+														<Box>
 															<Stack spacing={2} direction="row">
 																{node.selectedFoods.map(
 																	(
@@ -410,45 +284,36 @@ function App() {
 
 																		return (
 
-																			<div
-																				className="ITEM"
-																				key={
-																					index2
-																				}
-																			>
-																				<div className="CARD">
-																					<img
-																						src={
-																							food.image
-																						}
-																					/>
-																					<div className="CARD-TITLE">
-																						<div className="ITEM-NAME">
+																			<Box key={index2}>
+																				<Box>
+																					<img src={food.image} />
+																					<Box>
+																						<Box>
 																							{
 																								food.name
 																							}
-																						</div>
-																					</div>
-																					<div className="ITEM-PRICE">
+																						</Box>
+																					</Box>
+																					<Box>
 																						{
 																							food.weight
 																						}{" "}
 																						Kg
-																					</div>
-																					<div className="ITEM-PRICE">
+																					</Box>
+																					<Box>
 																						{
 																							food.hunger
 																						}{" "}
 																						Fome
-																					</div>
-																				</div>
-																			</div>
+																					</Box>
+																				</Box>
+																			</Box>
 
 																		);
 																	}
 																)}
 															</Stack>
-														</div>
+														</Box>
 
 													</TabPanel>
 												)
@@ -497,11 +362,7 @@ function App() {
 												return (
 													<Box>
 														<Box>
-															<img
-																src={
-																	food.image
-																}
-															/>
+															<img src={food.image} />
 															<Box >
 																<Typography>
 																	{food.name}
