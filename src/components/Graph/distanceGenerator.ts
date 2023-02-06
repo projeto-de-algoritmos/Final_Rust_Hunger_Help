@@ -113,7 +113,7 @@ const generateDistances = (graph: Graph, qtd: number) => {
     setDistance(graph, 5, 8, randomDistance(1, qtd));
 
     const distances = [];
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 1; i <= 11; i++) {
         const distance = djikstraAlgorithm(graph, 0, i);
         distances.push(distance);
     }

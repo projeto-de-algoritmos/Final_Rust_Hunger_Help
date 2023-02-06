@@ -1,7 +1,7 @@
 import { Graph } from "../../interfaces/graph.interface";
 
 const generateNodes = (graph: Graph) => {
-    const qtd = 12;
+    const qtd = 11;
     const nodes: { id: number; }[] = [];
     for (let i = 0; i <= qtd; i++) {
         graph.set(i, []);

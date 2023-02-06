@@ -14,7 +14,7 @@ const getRandomFoods = (foods: Food[]) => {
 const generateFoodsPerRegion = (foods: Food[]) => {
     const foodsPerRegion = [];
 
-    for (let i = 1; i <= 12; i++) {
+    for (let i = 0; i <= 11; i++) {
         const regionFoods = getRandomFoods(foods);
         foodsPerRegion.push(regionFoods);
     }
@@ -26,6 +26,6 @@ export default { generateFoodsPerRegion, getRandomFoods };
 /*
 Passo unico
 
-função para gerar os 15 itens aleatorios para cada regiao
-ela retorna um array com 15 elementos em cada posição, simbolizando o id da regiao
+função para gerar os 5 itens aleatorios para cada regiao
+ela retorna um array com 5 elementos em cada posição, simbolizando o id da regiao
 */

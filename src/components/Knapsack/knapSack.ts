@@ -1,6 +1,5 @@
 import { Food } from "../../interfaces/food.interface";
 
-//Depois de escolher o personagem, ele possui um peso da mochila
 const knapSack = (foods: Food[], bag_weight: number) => {
     const qtdItens = foods.length;
 
@@ -64,9 +63,9 @@ export default { generateKnapSack };
 
 
 /*
-Função para saber os melhores alimentos a serem escolhidos de acordo com o tamanho da mochila do personagem escolhido
+Função para saber os melhores alimentos a serem escolhidos de acordo com o tamanho da mochila escolhido
 
-Retorna um array com os melhores alimentos de cada regiao (12 arrays dos melhores alimentos)
+Retorna um array com os melhores alimentos de cada regiao (121arrays dos melhores alimentos)
 
 generateKnapSack(foodsPerRegion, bag_weight)
 */
