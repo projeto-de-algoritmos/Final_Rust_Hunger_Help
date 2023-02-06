@@ -86,12 +86,11 @@ function App() {
 
 	return (
 		<Container>
-			<Box textAlign="center">
+			<Box textAlign="center" padding={2}>
 				<Box
 					flexGrow={1}
 					textAlign="center"
 					marginBottom={3}
-					paddingTop={1}
 				>
 					<Link href=".">
 						<img src={rust} alt="RUST" width="20%" />
@@ -476,49 +475,64 @@ function App() {
 						</Box>
 					) : null}
 					{Object.keys(bestRoute).length !== 0 ? (
-						<div>
-							<div>
-								<span>
-									A melhor região é: {bestRoute.region} com{" "}
-									{bestRoute.distance} de distancia
-								</span>
-							</div>
-							<div>
-								<span>
+						<Box>
+							<Box>
+								<Typography>
+									A melhor região é a {bestRoute.region} com{" "}
+									{bestRoute.distance} Km de distancia
+								</Typography>
+							</Box>
+							<Box>
+								<Typography>
 									Total de fome: {bestRoute.totalHunger} e
 									Peso na mochila: {bestRoute.totalWeight}
-								</span>
-							</div>
-							<div className="ITENS">
-								{bestRoute.selectedFoods.map(
-									(food: Food, index) => {
-										return (
-											<div className="ITEM" key={index}>
-												<div className="CARD">
-													{/* <img
-                      src={
-                        food.image
-                      }
-                    /> */}
-													<div className="CARD-TITLE">
-														<div className="ITEM-NAME">
-															{food.name}
-														</div>
-													</div>
-													<div className="ITEM-PRICE">
-														{food.weight} Kg
-													</div>
-													<div className="ITEM-PRICE">
-														{food.hunger} Fome
-													</div>
-												</div>
-											</div>
-										);
-									}
-								)}
-							</div>
-						</div>
+								</Typography>
+							</Box>
+							<Box padding={3}>
+								<Box padding={2}>
+									<Stack spacing={2} direction="row">
+
+										{bestRoute.selectedFoods.map(
+											(food: Food, index) => {
+												return (
+													<Box>
+														<Box>
+															<img
+																src={
+																	food.image
+																}
+															/>
+															<Box >
+																<Typography>
+																	{food.name}
+																</Typography>
+															</Box>
+															<Typography>
+																{food.weight} Kg
+															</Typography>
+															<Typography>
+																{food.hunger} Fome
+															</Typography>
+														</Box>
+													</Box>
+												);
+											}
+										)}
+									</Stack>
+								</Box>
+								<Box padding={2}>
+									<Typography variant="body1">
+										Foi realizada uma relação entre a distância e quantidade de fome que é possivel recuperar na região. Para cada 5 km andado gasta-se de 1 de fome. Considerando quantidade de fome adquirida na região e a distancia percorrida, será possivel chegar ao destino e percorrer mais {bestRoute.bestRelation} Km.
+									</Typography>
+								</Box>
+							</Box>
+						</Box>
 					) : null}
+				</Box>
+				<Box>
+					<Typography variant="caption">
+						Baseado no jogo <Link href="https://rust.fandom.com/wiki/Rust">Rust</Link> que tem como objetivo sobreviver num cenário pós-apocaliptico, e para isso é necessario procurar por recursos como comida;
+					</Typography>
 				</Box>
 			</Box>
 		</Container >

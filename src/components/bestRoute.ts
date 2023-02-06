@@ -3,7 +3,7 @@ import { BestRoute } from "../interfaces/bestRoute.interface";
 
 const relationKmHunger = (distance: number, hunger: number) => {
 
-    // 1 vida equivale a 5km, então precisamos encontrar a maior real_km.
+    // 1 de fome equivale a 5km, então precisamos encontrar a maior real_km.
     const possible_km = 5 * hunger;
     const real_km = possible_km - distance;
 
