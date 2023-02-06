@@ -36,12 +36,19 @@ Encontrar melhor região para ir de acordo com a relação da distância com a q
 [Link (baixar)](https://github.com/projeto-de-algoritmos/Final_Rust_Hunger_Help/blob/master/apresentacao.mp4)
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Javascript<br>
+**Framework**: React<br>
+É necessário ter o node instalado na máquina para rodar o projeto.
+Para instalar as dependências do projeto execute os seguintes comandos.
 
-## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
+`npm install`
+
+Para rodar o projeto execute o seguinte comando:
+
+`npm run dev`
+
+Clique no link 
+http://localhost:5173/
 
 
 
